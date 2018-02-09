@@ -6,3 +6,4 @@ Connect Four (also known as Captain's Mistress, Four Up, Plot Four, Find Four, F
 Steps to run 
 1. Clone the Repo
 2. Open Index.html in browser
+3. To run unit test cases - open 'test/testRunner.html'
