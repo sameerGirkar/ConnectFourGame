@@ -22,7 +22,7 @@ class GRID {
   }
 
   /**
-   * @param {number} col - this is colCount value.
+   * @param {number} col - user selected column to drop boll.
    * @return {number} avaiblabe row number or -1.
    */
   FindAvailableSpace(col) {
@@ -55,8 +55,8 @@ class GRID {
   }
 
   /**
-   * @param {number} row - this is rowCount value.
-   * @param {number} col - this is colCount value.
+   * @param {number} row - row number in which ball is drop.
+   * @param {number} col - column number in which ball is drop.
    * @return {array} list with part of row in which consecutive matches possible.
    */
   GetRow(row, col) {
@@ -67,8 +67,8 @@ class GRID {
   }
 
   /**
-   * @param {number} row - this is rowCount value.
-   * @param {number} col - this is colCount value.
+   * @param {number} row - row number in which ball is drop.
+   * @param {number} col - column number in which ball is drop.
    * @return {array} list with part of column in which consecutive matches possible.
    */
   GetColumn(row, col) {
@@ -83,8 +83,8 @@ class GRID {
   }
 
   /**
-   * @param {number} row - this is rowCount value.
-   * @param {number} col - this is colCount value.
+   * @param {number} row - row number in which ball is drop.
+   * @param {number} col - column number in which ball is drop.
    * @return {array} list with part of left-top to right-bottom diagonal in which consecutive matches possible.
    */
   GetLeftToRightDiagonal(row, col) {
@@ -103,8 +103,8 @@ class GRID {
   }
 
   /**
-   * @param {number} row - this is rowCount value.
-   * @param {number} col - this is colCount value.
+   * @@param {number} row - row number in which ball is drop.
+   * @param {number} col - column number in which ball is drop.
    * @return {array} list with part of righ-top to left-bottom diagonal in which consecutive matches possible.
    */
   GetRightToLeftDiagonal(row, col) {
@@ -122,8 +122,8 @@ class GRID {
   }
 
  /**
-   * @param {number} row - this is rowCount value.
-   * @param {number} col - this is colCount value.
+   * @@param {number} row - row number in which ball is drop.
+   * @param {number} col - column number in which ball is drop.
    * @param {string} player - player name.
    * @return {boolean} is given user has horizontal match.
    */
@@ -133,8 +133,8 @@ class GRID {
   }
 
  /**
-   * @param {number} row - this is rowCount value.
-   * @param {number} col - this is colCount value.
+   * @@param {number} row - row number in which ball is drop.
+   * @param {number} col - column number in which ball is drop.
    * @param {string} player - player name.
    * @return {boolean} is given user has vertical match.
    */
@@ -143,8 +143,8 @@ class GRID {
   }
 
  /**
-   * @param {number} row - this is rowCount value.
-   * @param {number} col - this is colCount value.
+   * @@param {number} row - row number in which ball is drop.
+   * @param {number} col - column number in which ball is drop.
    * @param {string} player - player name.
    * @return {boolean} is given user has diagonal match.
    */
@@ -153,8 +153,8 @@ class GRID {
   }
 
    /**
-   * @param {number} row - this is rowCount value.
-   * @param {number} col - this is colCount value.
+   * @param {number} row - row number in which ball is drop.
+   * @param {number} col - column number in which ball is drop.
    * @param {string} player - player name.
    * @return {boolean} is given player won.
    */
@@ -163,7 +163,7 @@ class GRID {
   }
 
    /**
-   * @param {number} col - this is colCount value.
+   * @param {number} col - column number in which ball is drop.
    * @param {string} player - player name.
    * @returns {object} object with attribute use last selected row and game status.
    */
