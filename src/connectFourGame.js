@@ -63,7 +63,6 @@ class GRID {
     let startIndex = ((col - (this.MatchCount - 1)) <= 0) ? 0 : (col - (this.MatchCount - 1)),
       lastIndex = ((col + (this.MatchCount - 1)) < this.colCount) ? (col + (this.MatchCount - 1)) : this.colCount;
     
-    console.log('getRow  ', this.gameGrid[row].slice(startIndex, (lastIndex + 1)));
     return this.gameGrid[row].slice(startIndex, (lastIndex + 1));
   }
 
@@ -119,7 +118,6 @@ class GRID {
       list.push(this.gameGrid[i][j]);
       j--;
     }
-    console.log('GetRightToLeftDiagonal ---- startRowIndex=', startRowIndex, '/startColIndex=', startColIndex, '/endRowIndex=', endRowIndex, '/list=', list);
     return list;
   }
 
