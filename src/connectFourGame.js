@@ -8,6 +8,11 @@ class GRID {
     this.gameGrid = this.InitGrid(this.rowCount, this.colCount);
   }
 
+  /**
+   * @param {number} row - this is rowCount value.
+   * @param {number} col - this is colCount value.
+   * @return {array} two dimentional arry with rowCount & colCount.
+   */
   InitGrid(row, col) {
     let gameGrid = [];
     for(let i = 0 ; i < row; i++ ) {
@@ -16,6 +21,10 @@ class GRID {
     return gameGrid;
   }
 
+  /**
+   * @param {number} col - this is colCount value.
+   * @return {number} avaiblabe row number or -1.
+   */
   FindAvailableSpace(col) {
     for (let row = this.rowCount - 1; row > -1; row--) {  
       if(this.gameGrid[row][col] === 'X') {
@@ -25,6 +34,11 @@ class GRID {
     return -1;
   }
 
+  /**
+   * @param {array} list - list which represents matrix row, col or diagonal.
+   * @param {string} player - player name.
+   * @return {boolean} is geven player has minimum match count.
+   */
   CheckMatch(list, player) {
     let count = 0;
     for(let index = 0; index < list.length; index++){
@@ -40,6 +54,11 @@ class GRID {
     return !!(this.MatchCount === count);
   }
 
+  /**
+   * @param {number} row - this is rowCount value.
+   * @param {number} col - this is colCount value.
+   * @return {array} list with part of row in which consecutive matches possible.
+   */
   GetRow(row, col) {
     let startIndex = ((col - (this.MatchCount - 1)) <= 0) ? 0 : (col - (this.MatchCount - 1)),
       lastIndex = ((col + (this.MatchCount - 1)) < this.colCount) ? (col + (this.MatchCount - 1)) : this.colCount;
@@ -48,6 +67,11 @@ class GRID {
     return this.gameGrid[row].slice(startIndex, (lastIndex + 1));
   }
 
+  /**
+   * @param {number} row - this is rowCount value.
+   * @param {number} col - this is colCount value.
+   * @return {array} list with part of column in which consecutive matches possible.
+   */
   GetColumn(row, col) {
     let startIndex = ((row - (this.MatchCount - 1)) > -1) ? (row - (this.MatchCount - 1)) : 0,
       lastIndex = ((row + (this.MatchCount - 1)) < this.rowCount) ? (row + (this.MatchCount - 1)) : this.rowCount -1;
@@ -59,6 +83,11 @@ class GRID {
     return column;
   }
 
+  /**
+   * @param {number} row - this is rowCount value.
+   * @param {number} col - this is colCount value.
+   * @return {array} list with part of left-top to right-bottom diagonal in which consecutive matches possible.
+   */
   GetLeftToRightDiagonal(row, col) {
     let list = [],
       stepLength = (this.MatchCount - 1),
@@ -71,11 +100,14 @@ class GRID {
       list.push(this.gameGrid[i][j]);
       j++;
     }
-    console.log('GetLeftToRightDiagonal --- startRowIndex=', startRowIndex, '/startColIndex=', startColIndex, '/endRowIndex=', endRowIndex,'/list=',list);
-    // console.log('GetLeftToRightDiagonal', list, startRowIndex, startColIndex, endRowIndex);
     return list;
   }
 
+  /**
+   * @param {number} row - this is rowCount value.
+   * @param {number} col - this is colCount value.
+   * @return {array} list with part of righ-top to left-bottom diagonal in which consecutive matches possible.
+   */
   GetRightToLeftDiagonal(row, col) {
     let list = [],
       stepLength = (this.MatchCount - 1),
@@ -91,24 +123,52 @@ class GRID {
     return list;
   }
 
-
+ /**
+   * @param {number} row - this is rowCount value.
+   * @param {number} col - this is colCount value.
+   * @param {string} player - player name.
+   * @return {boolean} is given user has horizontal match.
+   */
   CheckHorizontal(row, col, player) {
     let list = this.GetRow(row, col);
     return this.CheckMatch(list, player);
   }
 
+ /**
+   * @param {number} row - this is rowCount value.
+   * @param {number} col - this is colCount value.
+   * @param {string} player - player name.
+   * @return {boolean} is given user has vertical match.
+   */
   CheckVertical(row, col, player) {
     return this.CheckMatch(this.GetColumn(row, col), player)
   }
 
+ /**
+   * @param {number} row - this is rowCount value.
+   * @param {number} col - this is colCount value.
+   * @param {string} player - player name.
+   * @return {boolean} is given user has diagonal match.
+   */
   CheckDiagonal(row, col, player) {
     return this.CheckMatch(this.GetLeftToRightDiagonal(row, col), player) || this.CheckMatch(this.GetRightToLeftDiagonal(row, col), player);
   }
 
+   /**
+   * @param {number} row - this is rowCount value.
+   * @param {number} col - this is colCount value.
+   * @param {string} player - player name.
+   * @return {boolean} is given player won.
+   */
   IsPlayerWon(row, col, player) {
     return this.CheckHorizontal(row, col, player) || this.CheckVertical(row, col, player) || this.CheckDiagonal(row, col, player);
   }
 
+   /**
+   * @param {number} col - this is colCount value.
+   * @param {string} player - player name.
+   * @returns {object} object with attribute use last selected row and game status.
+   */
   DropEventHandler(col, player) {
     let row = this.FindAvailableSpace(col);
     if(row === -1){
