@@ -103,7 +103,7 @@ class GRID {
   }
 
   /**
-   * @@param {number} row - row number in which ball is drop.
+   * @param {number} row - row number in which ball is drop.
    * @param {number} col - column number in which ball is drop.
    * @return {array} list with part of righ-top to left-bottom diagonal in which consecutive matches possible.
    */
@@ -122,7 +122,7 @@ class GRID {
   }
 
  /**
-   * @@param {number} row - row number in which ball is drop.
+   * @param {number} row - row number in which ball is drop.
    * @param {number} col - column number in which ball is drop.
    * @param {string} player - player name.
    * @return {boolean} is given user has horizontal match.
@@ -133,7 +133,7 @@ class GRID {
   }
 
  /**
-   * @@param {number} row - row number in which ball is drop.
+   * @param {number} row - row number in which ball is drop.
    * @param {number} col - column number in which ball is drop.
    * @param {string} player - player name.
    * @return {boolean} is given user has vertical match.
@@ -143,7 +143,7 @@ class GRID {
   }
 
  /**
-   * @@param {number} row - row number in which ball is drop.
+   * @param {number} row - row number in which ball is drop.
    * @param {number} col - column number in which ball is drop.
    * @param {string} player - player name.
    * @return {boolean} is given user has diagonal match.
