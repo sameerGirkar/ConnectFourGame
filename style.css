@@ -1,0 +1,38 @@
+.container {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.info {
+  margin: 20px 40px;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    border: 10px solid #435a8c;
+    background-color: #e2e7f1;
+    border-radius: 40px;
+    text-align: center;
+    margin: 2px;
+}
+
+.input-slots .cell {
+  background-color: white;
+  background-image: url('images/arrows.png');
+  background-size: 48px;
+  background-repeat: no-repeat;
+  background-position: 6px;
+}
+
+.row {
+  display: flex;
+}
+
+.input-slots .cell.player1:hover {
+    background-color:red;
+}
+
+.input-slots .cell.player2:hover {
+    background-color: greenyellow;
+}
